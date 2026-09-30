@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محاضرة الرياضيات 1 - قسم الجرارات | جامعة برج العرب التكنولوجية</title>
-    <!-- MathJax لرسم المعادلات الرياضيات بشكل ممتاز -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- تهيئة وربط مكتبة MathJax لعرض الرموز الرياضية بشكل صحيح -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
     <style>
         :root {
             --primary-color: #1b4332;
@@ -162,13 +176,11 @@
 
         <!-- قسم الشرح الكامل للمحاضرة -->
         <div class="card">
-            <h2>الشرح الكامل للمحاضرة الأولى</h2>
-            
-            <h3>1. مفهوم الدالة (Function)</h3>
+            <h2>1. مفهوم الدالة (Function)</h2>
             <p>الدالة هي علاقة تربط كل عنصر $x$ من مجموعة المدخلات بعنصر واحد فقط $y$ في مجموعة المخرجات.</p>
             <p>الصيغة العامة: $$y = f(x)$$</p>
 
-            <h3>2. المجال والمدى (Domain and Range)</h3>
+            <h2>2. المجال والمدى (Domain and Range)</h2>
             <div class="rule-box">
                 <strong>القواعد الأساسية لإيجاد المجال (Domain):</strong>
                 <ol>
@@ -178,7 +190,7 @@
                 </ol>
             </div>
 
-            <h3>3. أمثلة محلولة خطوة بخطوة</h3>
+            <h2>3. أمثلة محلولة خطوة بخطوة</h2>
 
             <div class="example-box">
                 <strong>مثال 1 (دالة كسرية):</strong> أوجد مجال الدالة التالية:
