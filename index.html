@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاضرة الرياضيات 1 - قسم الجرارات | جامعة برج العرب التكنولوجية</title>
+    <!-- MathJax لرسم المعادلات الرياضيات بشكل ممتاز -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #1b4332;
+            --secondary-color: #2d6a4f;
+            --accent-color: #d8f3dc;
+            --text-color: #2b2b2b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2em;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--secondary-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--secondary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        tr:hover {
+            background-color: #f1f8f3;
+        }
+
+        .rule-box {
+            background-color: #e9f5ed;
+            border-right: 4px solid #2d6a4f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .example-box {
+            background-color: #fff8e7;
+            border-right: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .application-box {
+            background-color: #eef2f7;
+            border-right: 4px solid #0d6efd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>جامعة برج العرب التكنولوجية</h1>
+        <p>كلية تكنولوجيا الصناعة والطاقة | قسم الجرارات والمعدات الزراعية</p>
+        <h3>محاضرة الرياضيات الأولى (Mathematics 1)</h3>
+    </header>
+
+    <div class="container">
+
+        <!-- قسم التمهيد والتطبيق الهندسية -->
+        <div class="card">
+            <h2>مقدمة وتطبيق هندسي لقسم الجرارات</h2>
+            <p>الرياضيات في الكليات التكنولوجية ليست مجرد نظريات، بل هي أداة هامة لحساب وتصميم الأجزاء الميكانيكية للجرارات والآلات الزراعية.</p>
+            <div class="application-box">
+                <strong>لماذا ندرس الرياضيات في قسم الجرارات؟</strong>
+                <ul>
+                    <li>حساب قدرة الموتور وحجم الإزاحة في المحركات.</li>
+                    <li>حساب أحمال الهيدروليك والضغوط الواقعة على وصلات الجرار.</li>
+                    <li>دراسة زوايا انحدار المعدات والاتزان أثناء العمل في التربة.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- قسم الشرح الكامل للمحاضرة -->
+        <div class="card">
+            <h2>الشرح الكامل للمحاضرة الأولى</h2>
+            
+            <h3>1. مفهوم الدالة (Function)</h3>
+            <p>الدالة هي علاقة تربط كل عنصر $x$ من مجموعة المدخلات بعنصر واحد فقط $y$ في مجموعة المخرجات.</p>
+            <p>الصيغة العامة: $$y = f(x)$$</p>
+
+            <h3>2. المجال والمدى (Domain and Range)</h3>
+            <div class="rule-box">
+                <strong>القواعد الأساسية لإيجاد المجال (Domain):</strong>
+                <ol>
+                    <li><strong>الدوال كثيرات الحدود (Polynomials):</strong> مجالها دائماً جميع الأعداد الحقيقية $\mathbb{R}$ أو $(-\infty, \infty)$.</li>
+                    <li><strong>الدوال الكسرية (Rational Functions):</strong> المجال هو $\mathbb{R} \setminus \{\text{أصفار المقام}\}$.</li>
+                    <li><strong>الدوال الجذرية (ذات دليل زوجي):</strong> يجب أن يكون ما تحت الجذر أكبر من أو يساوي الصفر ($\ge 0$).</li>
+                </ol>
+            </div>
+
+            <h3>3. أمثلة محلولة خطوة بخطوة</h3>
+
+            <div class="example-box">
+                <strong>مثال 1 (دالة كسرية):</strong> أوجد مجال الدالة التالية:
+                $$f(x) = \frac{2x + 1}{x - 4}$$
+                <strong>الحل:</strong>
+                <p>1. نأخذ المقام ونقيس متى يساوي الصفر: $x - 4 = 0 \implies x = 4$.</p>
+                <p>2. إذن المجال هو جميع الأعداد الحقيقية ما عدا 4:</p>
+                <p>$$\text{Domain} = \mathbb{R} \setminus \{4\}$$</p>
+            </div>
+
+            <div class="example-box">
+                <strong>مثال 2 (دالة جذرية):</strong> أوجد مجال الدالة التالية:
+                $$f(x) = \sqrt{2x - 6}$$
+                <strong>الحل:</strong>
+                <p>1. نضع ما تحت الجذر أكبر من أو يساوي الصفر: $2x - 6 \ge 0$.</p>
+                <p>2. نحل المتباينة: $2x \ge 6 \implies x \ge 3$.</p>
+                <p>3. إذن المجال هو الفترة المغلقة من 3 إلى ما لا نهاية:</p>
+                <p>$$\text{Domain} = [3, \infty)$$</p>
+            </div>
+        </div>
+
+        <!-- قسم قاموس المصطلحات مع محرك بحث -->
+        <div class="card">
+            <h2>قاموس المصطلحات الرياضية (Math Terms)</h2>
+            <p>ابحث عن أي مصطلح بالعربي أو الإنجليزي:</p>
+            <input type="text" id="searchInput" class="search-box" onkeyup="searchTerms()" placeholder="ابحث عن مصطلح (مثال: Domain, تفاضل, Matrix)...">
+
+            <table id="termsTable">
+                <thead>
+                    <tr>
+                        <th>المصطلح بالعربية</th>
+                        <th>المصطلح بالإنجليزية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>دالة</td><td>Function</td></tr>
+                    <tr><td>المجال</td><td>Domain</td></tr>
+                    <tr><td>المدى</td><td>Range</td></tr>
+                    <tr><td>متغير مستقل</td><td>Independent Variable</td></tr>
+                    <tr><td>متغير تابع</td><td>Dependent Variable</td></tr>
+                    <tr><td>دالة خطية</td><td>Linear Function</td></tr>
+                    <tr><td>دالة تربيعية</td><td>Quadratic Function</td></tr>
+                    <tr><td>كثيرات الحدود</td><td>Polynomials</td></tr>
+                    <tr><td>دالة كسرية</td><td>Rational Function</td></tr>
+                    <tr><td>دالة جذرية</td><td>Radical Function</td></tr>
+                    <tr><td>دالة أسية</td><td>Exponential Function</td></tr>
+                    <tr><td>دالة لوغاريتمية</td><td>Logarithmic Function</td></tr>
+                    <tr><td>نهاية / نهايات</td><td>Limit / Limits</td></tr>
+                    <tr><td>اتصال الدالة</td><td>Continuity</td></tr>
+                    <tr><td>تفاضل / اشتقاق</td><td>Differentiation / Derivative</td></tr>
+                    <tr><td>معدل التغير</td><td>Rate of Change</td></tr>
+                    <tr><td>المماس</td><td>Tangent</td></tr>
+                    <tr><td>العمودي</td><td>Normal</td></tr>
+                    <tr><td>قاعدة السلسلة</td><td>Chain Rule</td></tr>
+                    <tr><td>تكامل</td><td>Integration</td></tr>
+                    <tr><td>تكامل محدد</td><td>Definite Integral</td></tr>
+                    <tr><td>مصفوفة / مصفوفات</td><td>Matrix / Matrices</td></tr>
+                    <tr><td>محدد / محددات</td><td>Determinant / Determinants</td></tr>
+                    <tr><td>متجهات</td><td>Vectors</td></tr>
+                    <tr><td>معادلة</td><td>Equation</td></tr>
+                    <tr><td>متباينة</td><td>Inequality</td></tr>
+                    <tr><td>جذر</td><td>Root / Radical</td></tr>
+                    <tr><td>أُس / قوة</td><td>Exponent / Power</td></tr>
+                    <tr><td>بسط / مقام</td><td>Numerator / Denominator</td></tr>
+                    <tr><td>الأعداد الحقيقية</td><td>Real Numbers ($\mathbb{R}$)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>تم التصميم لطلاب جامعة برج العرب التكنولوجية - قسم الجرارات والآلات الزراعية</p>
+    </footer>
+
+    <script>
+        function searchTerms() {
+            var input, filter, table, tr, tdArabic, tdEnglish, i, txtValueAr, txtValueEn;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("termsTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                tdArabic = tr[i].getElementsByTagName("td")[0];
+                tdEnglish = tr[i].getElementsByTagName("td")[1];
+                if (tdArabic || tdEnglish) {
+                    txtValueAr = tdArabic.textContent || tdArabic.innerText;
+                    txtValueEn = tdEnglish.textContent || tdEnglish.innerText;
+                    if (txtValueAr.toUpperCase().indexOf(filter) > -1 || txtValueEn.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
