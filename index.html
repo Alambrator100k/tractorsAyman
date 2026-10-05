@@ -1,293 +1,431 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محاضرة الرياضيات 1 - قسم الجرارات | جامعة برج العرب التكنولوجية</title>
-    
-    <!-- تهيئة وربط مكتبة MathJax لعرض الرموز الرياضية بشكل صحيح -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-
-    <style>
-        :root {
-            --primary-color: #1b4332;
-            --secondary-color: #2d6a4f;
-            --accent-color: #d8f3dc;
-            --text-color: #2b2b2b;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2em;
-        }
-
-        header p {
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-right: 5px solid var(--secondary-color);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-box:focus {
-            border-color: var(--secondary-color);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: right;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-        }
-
-        tr:hover {
-            background-color: #f1f8f3;
-        }
-
-        .rule-box {
-            background-color: #e9f5ed;
-            border-right: 4px solid #2d6a4f;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        .example-box {
-            background-color: #fff8e7;
-            border-right: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        .application-box {
-            background-color: #eef2f7;
-            border-right: 4px solid #0d6efd;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="منصة شرح التفاضل - Basic Differentiation Rules">
+  <title>Calculus Lab | التفاضل من الصفر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]'], ['$$','$$']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root{
+      --bg:#07111f; --panel:#0d1a2b; --panel2:#101f33; --text:#edf6ff; --muted:#9eb1c7;
+      --line:#20344d; --accent:#35c7ff; --accent2:#7c5cff; --good:#36d399; --warn:#ffcc66;
+      --danger:#ff6b7a; --shadow:0 20px 60px rgba(0,0,0,.28); --radius:20px;
+    }
+    body.light{
+      --bg:#f4f7fb; --panel:#fff; --panel2:#f7f9fc; --text:#142033; --muted:#5f6e82;
+      --line:#dbe3ed; --accent:#087ea4; --accent2:#6048d7; --shadow:0 16px 45px rgba(40,60,90,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 85% 0%,rgba(53,199,255,.10),transparent 28%),var(--bg);color:var(--text);font-family:Cairo,system-ui,sans-serif;line-height:1.85}
+    button,a{font:inherit}
+    a{text-decoration:none;color:inherit}
+    .topbar{position:fixed;inset:0 0 auto;z-index:100;height:70px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .topbar-inner{max-width:1250px;height:100%;margin:auto;padding:0 18px;display:flex;align-items:center;gap:14px}
+    .brand{font-weight:800;display:flex;align-items:center;gap:10px;white-space:nowrap}
+    .brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;font-weight:900}
+    .spacer{flex:1}
+    .icon-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);width:42px;height:42px;border-radius:12px;cursor:pointer}
+    .progress{position:absolute;bottom:-2px;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0}
+    .layout{max-width:1250px;margin:0 auto;padding:98px 18px 50px;display:grid;grid-template-columns:280px 1fr;gap:24px}
+    aside{position:sticky;top:92px;height:calc(100vh - 115px);overflow:auto;padding:16px;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .side-title{font-weight:800;margin:4px 8px 14px}
+    .nav-link{display:block;padding:10px 12px;border-radius:12px;color:var(--muted);margin:3px 0}
+    .nav-link:hover,.nav-link.active{background:var(--panel2);color:var(--text);border-right:3px solid var(--accent)}
+    main{min-width:0}
+    .hero{border:1px solid var(--line);border-radius:28px;padding:34px;background:linear-gradient(135deg,rgba(53,199,255,.10),rgba(124,92,255,.08)),var(--panel);box-shadow:var(--shadow);overflow:hidden;position:relative}
+    .hero:after{content:"∂";position:absolute;left:30px;bottom:-55px;font-size:210px;color:rgba(53,199,255,.05);font-weight:800}
+    .eyebrow{color:var(--accent);font-weight:800;font-size:.9rem}
+    h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.25;margin:8px 0 12px}
+    h2{font-size:1.7rem;margin:0 0 14px}
+    h3{font-size:1.25rem;margin:22px 0 10px}
+    .hero p{color:var(--muted);max-width:850px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .chip{padding:6px 10px;border:1px solid var(--line);background:var(--panel2);border-radius:999px;color:var(--muted);font-size:.85rem}
+    section{margin-top:24px;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+    .rule{border:1px solid var(--line);background:var(--panel2);border-radius:18px;padding:20px;margin:16px 0}
+    .rule-head{display:flex;align-items:flex-start;gap:12px}
+    .num{width:36px;height:36px;flex:none;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;display:grid;place-items:center;font-weight:900}
+    .formula{padding:16px;margin:14px 0;border-right:4px solid var(--accent);background:rgba(53,199,255,.06);overflow:auto;text-align:center}
+    .tip,.warn,.success{padding:14px 16px;border-radius:14px;margin:14px 0}
+    .tip{background:rgba(53,199,255,.08);border:1px solid rgba(53,199,255,.22)}
+    .warn{background:rgba(255,204,102,.08);border:1px solid rgba(255,204,102,.22)}
+    .success{background:rgba(54,211,153,.08);border:1px solid rgba(54,211,153,.22)}
+    .steps{counter-reset:step;list-style:none;padding:0}
+    .steps li{counter-increment:step;position:relative;padding:10px 50px 10px 0;border-bottom:1px dashed var(--line)}
+    .steps li:before{content:counter(step);position:absolute;right:0;top:9px;width:32px;height:32px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);font-weight:800}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .mini{border:1px solid var(--line);background:var(--panel2);border-radius:16px;padding:18px}
+    table{width:100%;border-collapse:collapse;margin:16px 0}
+    th,td{border:1px solid var(--line);padding:11px;text-align:right}
+    th{background:var(--panel2)}
+    .quiz{border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}
+    .options{display:grid;gap:8px;margin:12px 0}
+    .option{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:10px 12px;border-radius:12px;text-align:right;cursor:pointer}
+    .option:hover{border-color:var(--accent)}
+    .feedback{display:none;padding:10px 12px;border-radius:10px;margin-top:10px}
+    .feedback.show{display:block}
+    .correct{background:rgba(54,211,153,.10);color:var(--good)}
+    .incorrect{background:rgba(255,107,122,.10);color:var(--danger)}
+    .code{font-family:"JetBrains Mono",monospace;direction:ltr;text-align:left;background:#06101c;color:#cceaff;padding:14px;border-radius:14px;overflow:auto}
+    .sheet{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .sheet-item{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--panel2)}
+    .sheet-item strong{color:var(--accent)}
+    footer{text-align:center;color:var(--muted);padding:35px 10px}
+    .mobile-menu{display:none}
+    @media(max-width:900px){
+      .layout{grid-template-columns:1fr}
+      aside{display:none;position:fixed;z-index:90;top:82px;right:14px;left:14px;height:auto;max-height:75vh}
+      aside.open{display:block}
+      .mobile-menu{display:block}
+    }
+    @media(max-width:650px){
+      .layout{padding:88px 10px 35px}
+      section,.hero{padding:19px}
+      .grid,.sheet{grid-template-columns:1fr}
+      h1{font-size:2rem}
+      .brand span{display:none}
+    }
+  </style>
 </head>
 <body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn mobile-menu" id="menuBtn" aria-label="القائمة">☰</button>
+    <a class="brand" href="#top"><span class="brand-mark">∂</span><span>Calculus Lab — ALAMBRATOR</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع">☾</button>
+    <div class="progress" id="progress"></div>
+  </div>
+</header>
 
-    <header>
-        <h1>جامعة برج العرب التكنولوجية</h1>
-        <p>كلية تكنولوجيا الصناعة والطاقة | قسم الجرارات والمعدات الزراعية</p>
-        <h3>محاضرة الرياضيات الأولى (Mathematics 1)</h3>
-    </header>
+<div class="layout" id="top">
+  <aside id="sidebar">
+    <div class="side-title">خريطة الدرس 🧭</div>
+    <a class="nav-link" href="#start">ابدأ من هنا</a>
+    <a class="nav-link" href="#concept">1. ما هو التفاضل؟</a>
+    <a class="nav-link" href="#power">2. قاعدة القوة</a>
+    <a class="nav-link" href="#chain">3. قاعدة السلسلة</a>
+    <a class="nav-link" href="#product">4. قاعدة الضرب</a>
+    <a class="nav-link" href="#quotient">5. قاعدة القسمة</a>
+    <a class="nav-link" href="#roots">6. الجذور والأسس</a>
+    <a class="nav-link" href="#trig">7. التفاضل المثلثي</a>
+    <a class="nav-link" href="#second">8. المشتقة الثانية</a>
+    <a class="nav-link" href="#proofs">9. مسائل الإثبات</a>
+    <a class="nav-link" href="#sheet">10. خريطة ورقة Sheet 1</a>
+    <a class="nav-link" href="#quiz">11. اختبار سريع</a>
+  </aside>
 
-    <div class="container">
-
-        <!-- قسم التمهيد والتطبيق الهندسية -->
-        <div class="card">
-            <h2>مقدمة وتطبيق هندسي لقسم الجرارات</h2>
-            <p>الرياضيات في الكليات التكنولوجية ليست مجرد نظريات، بل هي أداة هامة لحساب وتصميم الأجزاء الميكانيكية للجرارات والآلات الزراعية.</p>
-            <div class="application-box">
-                <strong>لماذا ندرس الرياضيات في قسم الجرارات؟</strong>
-                <ul>
-                    <li>حساب قدرة الموتور وحجم الإزاحة في المحركات.</li>
-                    <li>حساب أحمال الهيدروليك والضغوط الواقعة على وصلات الجرار.</li>
-                    <li>دراسة زوايا انحدار المعدات والاتزان أثناء العمل في التربة.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- قسم الشرح الكامل للمحاضرة -->
-        <div class="card">
-            <h2>1. مفهوم الدالة (Function)</h2>
-            <p>الدالة هي علاقة تربط كل عنصر $x$ من مجموعة المدخلات بعنصر واحد فقط $y$ في مجموعة المخرجات.</p>
-            <p>الصيغة العامة: $$y = f(x)$$</p>
-
-            <h2>2. المجال والمدى (Domain and Range)</h2>
-            <div class="rule-box">
-                <strong>القواعد الأساسية لإيجاد المجال (Domain):</strong>
-                <ol>
-                    <li><strong>الدوال كثيرات الحدود (Polynomials):</strong> مجالها دائماً جميع الأعداد الحقيقية $\mathbb{R}$ أو $(-\infty, \infty)$.</li>
-                    <li><strong>الدوال الكسرية (Rational Functions):</strong> المجال هو $\mathbb{R} \setminus \{\text{أصفار المقام}\}$.</li>
-                    <li><strong>الدوال الجذرية (ذات دليل زوجي):</strong> يجب أن يكون ما تحت الجذر أكبر من أو يساوي الصفر ($\ge 0$).</li>
-                </ol>
-            </div>
-
-            <h2>3. أمثلة محلولة خطوة بخطوة</h2>
-
-            <div class="example-box">
-                <strong>مثال 1 (دالة كسرية):</strong> أوجد مجال الدالة التالية:
-                $$f(x) = \frac{2x + 1}{x - 4}$$
-                <strong>الحل:</strong>
-                <p>1. نأخذ المقام ونقيس متى يساوي الصفر: $x - 4 = 0 \implies x = 4$.</p>
-                <p>2. إذن المجال هو جميع الأعداد الحقيقية ما عدا 4:</p>
-                <p>$$\text{Domain} = \mathbb{R} \setminus \{4\}$$</p>
-            </div>
-
-            <div class="example-box">
-                <strong>مثال 2 (دالة جذرية):</strong> أوجد مجال الدالة التالية:
-                $$f(x) = \sqrt{2x - 6}$$
-                <strong>الحل:</strong>
-                <p>1. نضع ما تحت الجذر أكبر من أو يساوي الصفر: $2x - 6 \ge 0$.</p>
-                <p>2. نحل المتباينة: $2x \ge 6 \implies x \ge 3$.</p>
-                <p>3. إذن المجال هو الفترة المغلقة من 3 إلى ما لا نهاية:</p>
-                <p>$$\text{Domain} = [3, \infty)$$</p>
-            </div>
-        </div>
-
-        <!-- قسم قاموس المصطلحات مع محرك بحث -->
-        <div class="card">
-            <h2>قاموس المصطلحات الرياضية (Math Terms)</h2>
-            <p>ابحث عن أي مصطلح بالعربي أو الإنجليزي:</p>
-            <input type="text" id="searchInput" class="search-box" onkeyup="searchTerms()" placeholder="ابحث عن مصطلح (مثال: Domain, تفاضل, Matrix)...">
-
-            <table id="termsTable">
-                <thead>
-                    <tr>
-                        <th>المصطلح بالعربية</th>
-                        <th>المصطلح بالإنجليزية</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>دالة</td><td>Function</td></tr>
-                    <tr><td>المجال</td><td>Domain</td></tr>
-                    <tr><td>المدى</td><td>Range</td></tr>
-                    <tr><td>متغير مستقل</td><td>Independent Variable</td></tr>
-                    <tr><td>متغير تابع</td><td>Dependent Variable</td></tr>
-                    <tr><td>دالة خطية</td><td>Linear Function</td></tr>
-                    <tr><td>دالة تربيعية</td><td>Quadratic Function</td></tr>
-                    <tr><td>كثيرات الحدود</td><td>Polynomials</td></tr>
-                    <tr><td>دالة كسرية</td><td>Rational Function</td></tr>
-                    <tr><td>دالة جذرية</td><td>Radical Function</td></tr>
-                    <tr><td>دالة أسية</td><td>Exponential Function</td></tr>
-                    <tr><td>دالة لوغاريتمية</td><td>Logarithmic Function</td></tr>
-                    <tr><td>نهاية / نهايات</td><td>Limit / Limits</td></tr>
-                    <tr><td>اتصال الدالة</td><td>Continuity</td></tr>
-                    <tr><td>تفاضل / اشتقاق</td><td>Differentiation / Derivative</td></tr>
-                    <tr><td>معدل التغير</td><td>Rate of Change</td></tr>
-                    <tr><td>المماس</td><td>Tangent</td></tr>
-                    <tr><td>العمودي</td><td>Normal</td></tr>
-                    <tr><td>قاعدة السلسلة</td><td>Chain Rule</td></tr>
-                    <tr><td>تكامل</td><td>Integration</td></tr>
-                    <tr><td>تكامل محدد</td><td>Definite Integral</td></tr>
-                    <tr><td>مصفوفة / مصفوفات</td><td>Matrix / Matrices</td></tr>
-                    <tr><td>محدد / محددات</td><td>Determinant / Determinants</td></tr>
-                    <tr><td>متجهات</td><td>Vectors</td></tr>
-                    <tr><td>معادلة</td><td>Equation</td></tr>
-                    <tr><td>متباينة</td><td>Inequality</td></tr>
-                    <tr><td>جذر</td><td>Root / Radical</td></tr>
-                    <tr><td>أُس / قوة</td><td>Exponent / Power</td></tr>
-                    <tr><td>بسط / مقام</td><td>Numerator / Denominator</td></tr>
-                    <tr><td>الأعداد الحقيقية</td><td>Real Numbers ($\mathbb{R}$)</td></tr>
-                </tbody>
-            </table>
-        </div>
-
+  <main>
+    <div class="hero" id="start">
+      <div class="eyebrow">BASIC SCIENCE • DIFFERENTIATION</div>
+      <h1>التفاضل من الصفر<br><span style="color:var(--accent)">بفهم مش بحفظ</span> /h1>
+      <p>منصة مذاكرة مصممة لطلاب السنة الأولى: نفهم القاعدة أولًا، نعرف متى نستخدمها، ثم نطبق عليها خطوة بخطوة.</p>
+      <div class="chips">
+        <span class="chip">Power Rule</span><span class="chip">Chain Rule</span><span class="chip">Product Rule</span>
+        <span class="chip">Quotient Rule</span><span class="chip">Roots</span><span class="chip">Trigonometric Derivatives</span>
+      </div>
     </div>
 
-    <footer>
-        <p>تم التصميم لطلاب جامعة برج العرب التكنولوجية - قسم الجرارات والآلات الزراعية</p>
-    </footer>
+    <section id="concept">
+      <h2>1) ما هو التفاضل؟ </h2>
+      <p>التفاضل هو طريقة رياضية لمعرفة <b>معدل تغير</b> كمية بالنسبة إلى كمية أخرى. عندما تكون لدينا دالة:</p>
+      <div class="formula">\(y=f(x)\)</div>
+      <p>فإن مشتقتها تكتب بعدة صور متكافئة:</p>
+      <div class="formula">\(\displaystyle y'=\frac{dy}{dx}=f'(x)\)</div>
+      <div class="tip"><b>فكرة الامتحان:</b> قبل أن تشتق، لا تبدأ بالحساب. اسأل: «شكل الدالة ده تابع لأنهي قاعدة؟» تحديد القاعدة هو نصف الحل.</div>
+      <h3>مشتقات أساسية</h3>
+      <table>
+        <tr><th>الدالة</th><th>المشتقة</th></tr>
+        <tr><td>\(C\)</td><td>\(0\)</td></tr>
+        <tr><td>\(x\)</td><td>\(1\)</td></tr>
+        <tr><td>\(x^n\)</td><td>\(nx^{n-1}\)</td></tr>
+        <tr><td>\(\sin x\)</td><td>\(\cos x\)</td></tr>
+        <tr><td>\(\cos x\)</td><td>\(-\sin x\)</td></tr>
+        <tr><td>\(\tan x\)</td><td>\(\sec^2 x\)</td></tr>
+      </table>
+    </section>
 
-    <script>
-        function searchTerms() {
-            var input, filter, table, tr, tdArabic, tdEnglish, i, txtValueAr, txtValueEn;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("termsTable");
-            tr = table.getElementsByTagName("tr");
+    <section id="power">
+      <h2>2) قاعدة القوة Power Rule </h2>
+      <div class="rule">
+        <div class="rule-head"><div class="num">1</div><div><b>القانون الأساسي</b><div class="formula">\(\displaystyle \frac{d}{dx}(x^n)=nx^{n-1}\)</div></div></div>
+        <p><b>كيف تتذكرها؟</b> انزل الأس أمام \(x\)، ثم اطرح 1 من الأس.</p>
+        <ol class="steps">
+          <li>انقل الأس \(n\) ليصبح معاملًا.</li>
+          <li>اضربه في المعامل الموجود أصلًا إن وُجد.</li>
+          <li>غيّر الأس من \(n\) إلى \(n-1\).</li>
+        </ol>
+      </div>
+      <div class="grid">
+        <div class="mini"><b>مثال 1</b><div class="formula">\(y=x^5\Rightarrow y'=5x^4\)</div></div>
+        <div class="mini"><b>مثال 2</b><div class="formula">\(y=7x^3\Rightarrow y'=21x^2\)</div></div>
+        <div class="mini"><b>أس سالب</b><div class="formula">\(y=x^{-2}\Rightarrow y'=-2x^{-3}\)</div></div>
+        <div class="mini"><b>أس كسري</b><div class="formula">\(y=x^{2/5}\Rightarrow y'=\frac25x^{-3/5}\)</div></div>
+      </div>
+      <div class="success"><b>تطبيق من Sheet 1:</b> \(y=x^5+3x^3+8x+7\)<br>بالتفاضل حدًا حدًا: \(\boxed{y'=5x^4+9x^2+8}\)</div>
+    </section>
 
-            for (i = 1; i < tr.length; i++) {
-                tdArabic = tr[i].getElementsByTagName("td")[0];
-                tdEnglish = tr[i].getElementsByTagName("td")[1];
-                if (tdArabic || tdEnglish) {
-                    txtValueAr = tdArabic.textContent || tdArabic.innerText;
-                    txtValueEn = tdEnglish.textContent || tdEnglish.innerText;
-                    if (txtValueAr.toUpperCase().indexOf(filter) > -1 || txtValueEn.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+    <section id="chain">
+      <h2>3) قاعدة السلسلة Chain Rule </h2>
+      <p>نستخدمها عندما تكون هناك <b>دالة داخل دالة</b>، مثل \((x^2+3x+5)^4\) أو \(\sin(x^3)\).</p>
+      <div class="formula">\(\displaystyle \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}\)</div>
+      <div class="rule">
+        <h3>قاعدة عملية سهلة</h3>
+        <div class="formula">\(\boxed{\text{مشتقة الخارج}\times\text{مشتقة الداخل}}\)</div>
+        <ol class="steps">
+          <li>حدد «الداخل» \(u\).</li>
+          <li>اشتق الشكل الخارجي مع إبقاء الداخل كما هو.</li>
+          <li>اضرب في مشتقة الداخل.</li>
+        </ol>
+      </div>
+      <div class="mini">
+        <b>مثال كامل:</b>
+        <div class="formula">\(y=(x^2+3x+5)^4\)</div>
+        <p>الداخل: \(u=x^2+3x+5\)</p>
+        <p>مشتقة الخارج: \(4(x^2+3x+5)^3\)</p>
+        <p>مشتقة الداخل: \(2x+3\)</p>
+        <div class="formula">\(\boxed{y'=4(x^2+3x+5)^3(2x+3)}\)</div>
+      </div>
+      <div class="tip"><b>اختبار سريع:</b> \(y=\tan(4x-1)\) → مشتقة الخارج \(=\sec^2(4x-1)\)، ومشتقة الداخل \(=4\)، إذن \(y'=4\sec^2(4x-1)\).</div>
+    </section>
+
+    <section id="product">
+      <h2>4) قاعدة الضرب Product Rule ✖️</h2>
+      <p>عندما تكون الدالة حاصل ضرب دالتين، مثل \(y=u\cdot v\)، نستخدم:</p>
+      <div class="formula">\(\boxed{y'=u'v+uv'}\)</div>
+      <div class="warn"><b>خطأ شائع:</b> لا تكتب \(u'v'\). القاعدة ليست «اشتق الاثنين واضرب». لازم: مشتقة الأول × الثاني + الأول × مشتقة الثاني.</div>
+      <div class="mini">
+        <b>مثال من الورقة:</b>
+        <div class="formula">\(y=(2x^3+3)(5x^2-4)\)</div>
+        <p>\(u=2x^3+3,\quad u'=6x^2\)</p>
+        <p>\(v=5x^2-4,\quad v'=10x\)</p>
+        <div class="formula">\(\boxed{y'=6x^2(5x^2-4)+(2x^3+3)(10x)}\)</div>
+      </div>
+    </section>
+
+    <section id="quotient">
+      <h2>5) قاعدة القسمة Quotient Rule ➗</h2>
+      <p>إذا كانت:</p>
+      <div class="formula">\(\displaystyle y=\frac{u}{v}\)</div>
+      <p>فإن:</p>
+      <div class="formula">\(\boxed{\displaystyle y'=\frac{u'v-uv'}{v^2}}\)</div>
+      <div class="tip"><b>طريقة الحفظ:</b> «مشتقة البسط × المقام − البسط × مشتقة المقام، الكل على المقام تربيع».</div>
+      <div class="mini">
+        <b>مثال:</b>
+        <div class="formula">\(\displaystyle y=\frac{x^2-4}{x^2+2}\)</div>
+        <p>\(u=x^2-4,\ u'=2x\)</p>
+        <p>\(v=x^2+2,\ v'=2x\)</p>
+        <div class="formula">\(\displaystyle y'=\frac{(2x)(x^2+2)-(x^2-4)(2x)}{(x^2+2)^2}\)</div>
+        <div class="formula">\(\boxed{\displaystyle y'=\frac{12x}{(x^2+2)^2}}\)</div>
+      </div>
+    </section>
+
+    <section id="roots">
+      <h2>6) الجذور والأسس: مفتاح حل أسئلة كثيرة </h2>
+      <p>قبل التفاضل، حوّل الجذر إلى أس كسري:</p>
+      <div class="formula">\(\sqrt[n]{x^m}=x^{m/n}\)</div>
+      <table>
+        <tr><th>الشكل</th><th>التحويل</th></tr>
+        <tr><td>\(\sqrt{x}\)</td><td>\(x^{1/2}\)</td></tr>
+        <tr><td>\(\sqrt[3]{x}\)</td><td>\(x^{1/3}\)</td></tr>
+        <tr><td>\(\sqrt[4]{x^2}\)</td><td>\(x^{2/4}=x^{1/2}\)</td></tr>
+      </table>
+      <div class="mini">
+        <b>مثال:</b>
+        <div class="formula">\(y=\sqrt{x^5-4}=(x^5-4)^{1/2}\)</div>
+        <p>قاعدة السلسلة: مشتقة الخارج × مشتقة الداخل.</p>
+        <div class="formula">\(\boxed{\displaystyle y'=\frac{5x^4}{2\sqrt{x^5-4}}}\)</div>
+      </div>
+    </section>
+
+    <section id="trig">
+      <h2>7) التفاضل المثلثي 📐</h2>
+      <table>
+        <tr><th>الدالة</th><th>المشتقة</th></tr>
+        <tr><td>\(\sin u\)</td><td>\(\cos u\cdot u'\)</td></tr>
+        <tr><td>\(\cos u\)</td><td>\(-\sin u\cdot u'\)</td></tr>
+        <tr><td>\(\tan u\)</td><td>\(\sec^2u\cdot u'\)</td></tr>
+        <tr><td>\(\cot u\)</td><td>\(-\csc^2u\cdot u'\)</td></tr>
+        <tr><td>\(\sec u\)</td><td>\(\sec u\tan u\cdot u'\)</td></tr>
+        <tr><td>\(\csc u\)</td><td>\(-\csc u\cot u\cdot u'\)</td></tr>
+      </table>
+      <div class="mini">
+        <b>مثال:</b>
+        <div class="formula">\(y=\sin(x^3)\)</div>
+        <p>الخارج: \(\sin\)، الداخل: \(x^3\).</p>
+        <div class="formula">\(\boxed{y'=3x^2\cos(x^3)}\)</div>
+      </div>
+    </section>
+
+    <section id="second">
+      <h2>8) المشتقة الثانية \(y''\) </h2>
+      <p>المشتقة الثانية هي اشتقاق المشتقة الأولى مرة أخرى:</p>
+      <div class="formula">\(\displaystyle y'=\frac{dy}{dx}\quad\Longrightarrow\quad y''=\frac{d^2y}{dx^2}\)</div>
+      <div class="mini">
+        <b>مثال:</b>
+        <div class="formula">\(y=x^4-3x^{-2}+15x+10\)</div>
+        <p>أولًا:</p>
+        <div class="formula">\(y'=4x^3+6x^{-3}+15\)</div>
+        <p>ثم نشتق مرة ثانية:</p>
+        <div class="formula">\(\boxed{y''=12x^2-18x^{-4}}\)</div>
+      </div>
+      <div class="tip">في أي سؤال \(d^2y/dx^2\): <b>لا تحاول القفز للنهاية</b>. أوجد \(y'\) أولًا، ثم اشتق \(y'\) مرة ثانية.</div>
+    </section>
+
+    <section id="proofs">
+      <h2>9) مسائل الإثبات Show That </h2>
+      <p>في سؤال «Show that» المطلوب أن تبدأ من الدالة المعطاة وتشتقها، ثم تبسّط حتى تصل إلى الصورة المطلوبة.</p>
+      <div class="rule">
+        <h3>إثبات 1</h3>
+        <div class="formula">\(\displaystyle y=(x+\sqrt{x^2-1})^4\)</div>
+        <p>ضع \(u=x+\sqrt{x^2-1}\)، إذن \(y=u^4\).</p>
+        <div class="formula">\(\displaystyle y'=4u^3u'\)</div>
+        <p>ونحسب:</p>
+        <div class="formula">\(\displaystyle u'=1+\frac{x}{\sqrt{x^2-1}}
+=\frac{\sqrt{x^2-1}+x}{\sqrt{x^2-1}}
+=\frac{u}{\sqrt{x^2-1}}\)</div>
+        <p>إذن:</p>
+        <div class="formula">\(\displaystyle y'=4u^3\frac{u}{\sqrt{x^2-1}}
+=\boxed{\frac{4u^4}{\sqrt{x^2-1}}}
+=\boxed{\frac{4y}{\sqrt{x^2-1}}}\)</div>
+      </div>
+      <div class="rule">
+        <h3>إثبات 2</h3>
+        <div class="formula">\(\displaystyle y=\frac{2x}{\sqrt{x^2+4}}\)</div>
+        <p>حوّل الجذر إلى أس:</p>
+        <div class="formula">\(\displaystyle y=2x(x^2+4)^{-1/2}\)</div>
+        <p>استخدم Product Rule ثم Chain Rule:</p>
+        <div class="formula">\(\displaystyle y'=2(x^2+4)^{-1/2}+2x\left(-\frac12\right)(x^2+4)^{-3/2}(2x)\)</div>
+        <p>بتوحيد المقام والتبسيط:</p>
+        <div class="formula">\(\boxed{\displaystyle y'=\frac{8}{(x^2+4)^{3/2}}}\)</div>
+      </div>
+    </section>
+
+    <section id="sheet">
+      <h2>10) خريطة Sheet (1) 📄</h2>
+      <p>هذه الورقة هي التي أرسلتها. الهدف هنا أن تعرف «السؤال عايز مني إيه؟» قبل ما تبدأ الحل.</p>
+      <div class="sheet">
+        <div class="sheet-item"><strong>1</strong> \(x^5+3x^3+8x+7\)<br>Power Rule + جمع الحدود.</div>
+        <div class="sheet-item"><strong>2</strong> \(5x^{2/5}+x^{-2}\)<br>Power Rule.</div>
+        <div class="sheet-item"><strong>3</strong> \((x^2+3x+5)^4\)<br>Chain Rule.</div>
+        <div class="sheet-item"><strong>4</strong> \((x^4+1)^9\)<br>Chain Rule.</div>
+        <div class="sheet-item"><strong>5</strong> \(\sqrt{x^5-4}\)<br>Root → Power + Chain.</div>
+        <div class="sheet-item"><strong>6</strong> \(\sqrt{2-x^3}\)<br>Root → Power + Chain.</div>
+        <div class="sheet-item"><strong>7</strong> \((x^3-1)(2-x^5)^3\)<br>Product + Chain.</div>
+        <div class="sheet-item"><strong>8</strong> \(\sqrt{x^2-2(5-x^8)^6}\)<br>Power + Chain متعددة.</div>
+        <div class="sheet-item"><strong>9</strong> \(\frac{x^2}{x^3+2x}\)<br>Quotient Rule.</div>
+        <div class="sheet-item"><strong>10</strong> \(\frac{x^2-4}{x^2+2}\)<br>Quotient Rule.</div>
+        <div class="sheet-item"><strong>11</strong> \(x^{-3}(1+x^4)^5\)<br>Product + Chain.</div>
+        <div class="sheet-item"><strong>12</strong> \((x^{3/2}-1)^4\)<br>Chain + Power.</div>
+        <div class="sheet-item"><strong>13</strong> \(\left(\frac{1-x^4}{1+x^4}\right)^{3/2}\)<br>Chain + Quotient.</div>
+        <div class="sheet-item"><strong>14</strong> \((\sqrt{x}-1)^7\)<br>Chain + Root.</div>
+        <div class="sheet-item"><strong>15</strong> \(\sqrt[4]{x^2+5x}\)<br>Power + Chain.</div>
+        <div class="sheet-item"><strong>16</strong> \(\sqrt[3]{(3x+2)^2}\)<br>أسس كسرية + Chain.</div>
+      </div>
+      <div class="warn">⚠ الموقع تحت التطوير المستمر</div>
+    </section>
+
+    <section id="quiz">
+      <h2>11) اختبر نفسك </h2>
+      <p>اختار الإجابة، وستظهر لك النتيجة فورًا. حاول قبل رؤية الحل.</p>
+
+      <div class="quiz" data-answer="b">
+        <b>س1) إذا \(y=x^5\)، فما \(y'\)؟</b>
+        <div class="options">
+          <button class="option" data-choice="a">\(x^4\)</button>
+          <button class="option" data-choice="b">\(5x^4\)</button>
+          <button class="option" data-choice="c">\(5x^5\)</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="quiz" data-answer="c">
+        <b>س2) أي قاعدة نستخدم غالبًا مع \(y=(x^2+1)^7\)؟</b>
+        <div class="options">
+          <button class="option" data-choice="a">Product Rule</button>
+          <button class="option" data-choice="b">Quotient Rule</button>
+          <button class="option" data-choice="c">Chain Rule</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="quiz" data-answer="a">
+        <b>س3) إذا \(y=\sin(x^2)\)، فما المشتقة؟</b>
+        <div class="options">
+          <button class="option" data-choice="a">\(2x\cos(x^2)\)</button>
+          <button class="option" data-choice="b">\(\cos(x^2)\)</button>
+          <button class="option" data-choice="c">\(-2x\sin(x^2)\)</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="quiz" data-answer="b">
+        <b>س4) إذا \(y=uv\)، فما القاعدة الصحيحة؟</b>
+        <div class="options">
+          <button class="option" data-choice="a">\(u'v'\)</button>
+          <button class="option" data-choice="b">\(u'v+uv'\)</button>
+          <button class="option" data-choice="c">\(uv\)</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2> طريقة استخدام الموقع</h2>
+      <div class="grid">
+        <div class="mini"><b>① افهم</b><br>اقرأ تعريف القاعدة ومعناها.</div>
+        <div class="mini"><b>② شاهد المثال</b><br>تتبع الحل خطوة بخطوة.</div>
+        <div class="mini"><b>③ طبّق</b><br>حل السؤال قبل فتح أي حل.</div>
+        <div class="mini"><b>④ ارجع للقاعدة</b><br>لو وقفت، حدد شكل السؤال ثم اختر القاعدة.</div>
+      </div>
+    </section>
+
+    <footer>Calculus Lab • Basic Science • Designed for static GitHub Pages hosting 🚀</footer>
+  </main>
+</div>
+
+<script>
+  const body=document.body, themeBtn=document.getElementById('themeBtn');
+  const saved=localStorage.getItem('calc-theme');
+  if(saved==='light'){body.classList.add('light');themeBtn.textContent='☀';}
+  themeBtn.onclick=()=>{
+    body.classList.toggle('light');
+    const light=body.classList.contains('light');
+    localStorage.setItem('calc-theme',light?'light':'dark');
+    themeBtn.textContent=light?'☀':'☾';
+  };
+
+  const menuBtn=document.getElementById('menuBtn'), sidebar=document.getElementById('sidebar');
+  menuBtn.onclick=()=>sidebar.classList.toggle('open');
+  document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>sidebar.classList.remove('open')));
+
+  window.addEventListener('scroll',()=>{
+    const doc=document.documentElement;
+    const p=window.scrollY/(doc.scrollHeight-doc.clientHeight)*100;
+    document.getElementById('progress').style.width=p+'%';
+  });
+
+  document.querySelectorAll('.quiz').forEach(q=>{
+    const answer=q.dataset.answer, feedback=q.querySelector('.feedback');
+    q.querySelectorAll('.option').forEach(btn=>{
+      btn.onclick=()=>{
+        const ok=btn.dataset.choice===answer;
+        feedback.className='feedback show '+(ok?'correct':'incorrect');
+        feedback.textContent=ok?'✓ إجابة صحيحة! ممتاز.':'✗ مش دي الإجابة. راجع القاعدة وحاول تاني.';
+      };
+    });
+  });
+</script>
 </body>
 </html>
